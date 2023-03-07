@@ -12,26 +12,12 @@ import streamlit as st
 #import numpy as np
 import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
-pickle_in = open('C:\\Users\\Purushothama G V\\Documents\\DSP\\filename.pkl', 'rb')
+pickle_in = open('filename.pkl', 'rb')
 model_df = pickle.load(pickle_in)
 
 st.title('Model Deployment: Churn Prediction')
 
 st.sidebar.header('User Input Parameters')
-
-df = pd.read_csv("G:\\EXCELR\\PROJECT\\Problem Statement & Dataset\\Churn.csv")
-y=df["churn"]
-X=df.drop(df.columns[[0,1,-3]], axis = 1,inplace=True)
-
-from sklearn.model_selection import train_test_split
-Xtrain,Xtest,ytrain,ytest=train_test_split(X,y,test_size=0.3,random_state=42)
-
-model_df =DecisionTreeClassifier(criterion="gini",random_state=42,max_depth=6,min_samples_leaf=8)
-
-#Model Fitting
-model_df.fit(Xtrain,ytrain)
-
-y_pred=model_df.predict(Xtest)
 
 def churn_prediction(account_length,voice_plan,voice_messages,intl_plan,intl_mins,intl_calls,intl_charge,day_mins,day_calls,day_charge,eve_mins,eve_calls,eve_charge,night_mins,night_calls,night_charge,customer_calls,churn):
     if voice_plan == "No":
@@ -68,18 +54,7 @@ def main():
     night_calls=st.sidebar.number_input("Enter the number of Night calls")
     night_charge=st.sidebar.number_input("Enter the total night charge")
     customer_calls=st.sidebar.number_input("Enter the total customer calls")
-    #international_mins=st.sidebar.number_input("Enter the total international mins")
-    #customer_service_calls=st.sidebar.number_input("Enter the number of CS calls")
-    #international_plan=st.sidebar.selectbox("Do you have a international plan", ("No","Yes"))
-    #day_calls=st.sidebar.number_input("Enter the number of day calls")
-    #day_charge=st.sidebar.number_input("Enter the total day charge")
-    #evening_calls=st.sidebar.number_input("Enter the number of Evening calls")
-    #evening_charge=st.sidebar.number_input("Enter the total evening charge")
-    #night_calls=st.sidebar.number_input("Enter the number of Night calls")
-    #night_charge=st.sidebar.number_input("Enter the total night charge")
-    #international_calls=st.sidebar.number_input("Enter the number of INTL calls")
-    #international_charge=st.sidebar.number_input("Enter the total INTL charge")
-    #total_charge=st.sidebar.number_input("Enter the total charge")
+   
     
     churn=''
     if st.button('Churn results web app'):
