@@ -13,7 +13,7 @@ import streamlit as st
 import pandas as pd
 
 pickle_in = open('filename.pkl', 'rb')
-model_df = pickle.load(pickle_in)
+model_df_smote = pickle.load(pickle_in)
 
 st.title('Model Deployment: Churn Prediction')
 
