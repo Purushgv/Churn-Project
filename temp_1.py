@@ -11,7 +11,7 @@ import streamlit as st
 
 #import numpy as np
 import pandas as pd
-from sklearn.tree import DecisionTreeClassifier
+
 pickle_in = open('filename.pkl', 'rb')
 model_df = pickle.load(pickle_in)
 
