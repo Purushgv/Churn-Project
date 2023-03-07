@@ -28,7 +28,7 @@ def churn_prediction(account_length,voice_plan,voice_messages,intl_plan,intl_min
         intl_plan = 0
     else:
         intl_plan = 1  
-    prediction=model_df.predict(Xtrain)
+    prediction=model_df.predict([[account_length,voice_plan,voice_messages,intl_plan,intl_mins,intl_calls,intl_charge,day_mins,day_calls,day_charge,eve_mins,eve_calls,eve_charge,night_mins,night_calls,night_charge,customer_calls,churn]])
     print(prediction)
     if prediction[0]==0:
         return("Customer will not churn")
