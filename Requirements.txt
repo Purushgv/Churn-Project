@@ -3,4 +3,4 @@ pandas
 numpy
 scikit-learn==1.2.1
 pickle5
-
+Python 3.9.12
